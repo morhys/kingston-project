@@ -1,0 +1,19 @@
+<div class="course">
+	<div class="title"><%= link_to(h(course.title), :action => 'view_course', :id => course.id) %></div>
+	<div class="byline">
+		<span class="lecturer">Lecturers Name: <%= h(course.lecturer.display_name) %></span>
+		</div>
+		<div>
+		<span class=" course_limit">Course Places: <%= h(course.course_limit) %></span>
+		</div>
+		<div>
+		<span class="student-summary">Currently  <%= link_to(pluralize(course.approved_students.size, 'student'), :action => 'view_course', :id => course.id, :anchor => 'students') %> on Course</span>
+			
+	</div>
+	<div class="description"><%= prepare_course_description(course.description) %></div>
+	<div class="other-info">
+		
+		
+		
+	</div>
+</div>

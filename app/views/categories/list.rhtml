@@ -1,0 +1,41 @@
+<% @page_title = 'Categories' -%>
+
+<%= content_tag('p', link_to('&laquo; Back', :controller => 'staff', :action => 'menu')) %>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Short Name</th>
+		<th>Description</th>
+	</tr>
+<% for category in @categories -%>
+	<tr class="<%= cycle('row1', 'row2') %>">
+		<td><%= h(category.name) %></td>
+		<td><%= h(category.short_name) %></td>
+		<td><%= h(category.description) %></td>
+		<td><%= link_to('Edit', :action => 'list', :id => category) %></td>
+		<td><%= link_to('Destroy', { :action => 'destroy', :id => category }, :confirm => 'Are you sure you want to remove this category?', :method => :post) %></td>
+	</tr>
+<% end -%>
+</table>
+
+<%= link_to('Previous page', { :page => @category_pages.current.previous }) if @category_pages.current.previous %>
+<%= link_to('Next page', { :page => @category_pages.current.next }) if @category_pages.current.next %>
+
+<% form_tag(params[:id].blank? ? {:action => 'create'} : {:action => 'update', :id => @category}) do %>
+	<%= error_messages_for(:category) %>
+
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Short name</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td><%= text_field(:category, :name, :size => 20) %></td>
+			<td><%= text_field(:category, :short_name, :size => 20) %></td>
+			<td><%= text_field(:category, :description, :size => 40) %></td>
+			<td><%= submit_tag(params[:id].blank? ? "Create" : "Edit") %></td>
+		</tr>
+	</table>
+<% end %>

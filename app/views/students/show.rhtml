@@ -1,0 +1,25 @@
+<%= content_tag('p', link_to('&laquo; Back', :action => 'list')) %>
+
+<table>
+	<tr>
+		<th>UCAS ID:</th><td><%= h(@student.ucas_id) %></td>
+	</tr>
+	<tr>
+		<th>Name:</th><td><%= h(@student.student_name) %></td>
+	</tr>
+	<tr>
+		<th>Email:</th><td><%= h(@student.student_email) %></td>
+	</tr>
+	<tr>
+		<th>Number:</th><td><%= h(@student.tel) %></td>
+	</tr>
+	<tr>
+		<th>Status:</th><td><%= h(@student.status) %></td>
+	</tr>
+	<tr>
+		<th>Created:</th><td><%= @student.created_at.strftime('%m/%d/%y at %I:%m %p') %></td>
+	</tr>
+	<tr>
+		<th>Grades:</th><td><%= h(@student.subjects) %></td>
+	</tr>
+</table>

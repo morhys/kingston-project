@@ -1,0 +1,21 @@
+html { height: 100%; width: 100%; }
+body { width: 980px; }
+body table { width: 100%; border-collapse: collapse; }
+table tr td, table tr th { vertical-align: top; }
+th { text-align: left; }
+h1 { text-align: center; font-family: Georgia, Times, serif; }
+h2 { font-family: Georgia, Times, serif; margin-bottom: 1em; }
+.row1 { background: #DDDDDD; }
+.row2 { background: #FFFFFF; }
+
+#header { margin: 0; padding: .5em; height: 70px; font-size: 1.2em; 
+	background: #004080; color: #FFFFFF; clear: both; }
+.notice { height: 2em; color: #800000; border: 2px solid #800000; padding: .5em 1em 0 1em; font-weight: bold; }
+#pagecontent { min-height: 400px; }
+#footer { margin: 3em 0 0 0; padding: .5em;height: 50px; text-align: center; 
+	background: #004080; color: #FFFFFF; clear: both; }
+
+#header h1 { margin: 0; padding: .25em; }
+#pagecontent h1 { color: #800000; }
+a, a:visited { color: #800000; }
+a:hover { background: #CCCCCC; }

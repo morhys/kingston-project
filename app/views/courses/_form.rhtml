@@ -1,0 +1,39 @@
+<%= error_messages_for(:course) %>
+
+<table>
+	<tr>
+		<th>Title</td>
+		<td><%= text_field(:course, :title, :size => 40, :style => "font-size: 1.5em;") %></td>
+		<td rowspan="2">
+			<div class="categorylist">
+				<h2>Categories:</h2>
+				<ul>
+					<% @all_categories.each do |cat| -%>
+						<li><%= check_box_tag('categories[]', cat.id, @course.categories.map {|c| c.id }.include?(cat.id)) %>
+							<%= cat.name %></li>
+					<% end -%>
+				</ul>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<th>Course Description</th>
+		<td><%= text_area(:course, :description, :cols => 70, :rows => 20, :style => "font-size: 1.1em;") %></td>
+	</tr>
+	<tr>
+		<th>Lecturer</th>
+		<td><%= select(:course, :lecturer_id, @user_list) %></td>
+	</tr>
+	<tr>
+		<th>Status</th>
+		<td><%= select(:course, :status, ['completed', 'current']) %></td>
+	</tr>
+	<tr>
+		<th>Course Limit</td>
+		<td><%= text_field(:course, :course_limit, :size => 40, :style => "font-size: 1.5em;") %></td>
+	<tr>
+		<th>Created At</th>
+		<td><%= datetime_select(:course, :created_at, :order => [:month, :day, :year], 
+					:start_year => 2007, :end_year => Time.now.next_year.year) %></td>
+	</tr>
+</table>

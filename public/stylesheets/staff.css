@@ -1,0 +1,18 @@
+/* This is the stylesheet for the staff area 		*/
+/* It is intended to be supplemental to sblog.css 	*/
+
+.menu { margin-left: 375px; margin-top: 3em; }
+
+.categorylist { width: 200px; height: 380px; 
+	border: 1px solid #000000; }
+.categorylist h2 { font-size: 16px; margin: 0; padding: 6px; 
+	border-bottom: 1px solid #000000; }
+
+.userlist { height: 40em; margin: 0 0 3em 10px; }
+.userlist .listing { border: 1px solid #000000; height: 40em; }
+.userlist.left { float: left; width: 480px; }
+.userlist.right { float: right; width: 430px; }
+
+.student { padding: .5em 1em .5em 1em; }
+.student-lead { font-size: .75em; }
+.student-text { padding: .5em .5em 1em .5em; }

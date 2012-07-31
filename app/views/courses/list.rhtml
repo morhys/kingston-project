@@ -1,0 +1,37 @@
+<% @page_title = 'Listing Courses' %>
+
+<%= content_tag('p', link_to('&laquo; Back', :controller => 'staff', :action => 'menu')) %>
+
+<table>
+	<tr>
+		<th>Created</th>
+		<th>Title</th>
+		<th>Lecturer</th>
+		<th>Categories</th>
+		<th>Status</th>
+		<th>Course Limit</th>
+		<th>Students</th>
+	</tr>
+  
+<% for course in @courses %>
+	<tr class="<%= cycle('row1', 'row2')%>">
+		<td><%= course.created_at.strftime('%m/%d/%y %I:%m %p') %></td>
+		<td><%= h(course.title) %></td>
+		<td><%= h(course.lecturer.display_name) if course.students %></td>
+		<td><%= course.categories.collect {|cat| cat.name }.join(", ") %>
+		<td><%= h(course.status) %></td>
+		<td><%= course.course_limit %>
+		<td><%= course.students_count %>
+		<td><%= link_to('Preview', {:action => 'show', :id => course}, :target => '_blank') %></td>
+		<td><%= link_to('Edit', :action => 'edit', :id => course) %></td>
+		<td><%= link_to('Delete', { :action => 'destroy', :id => course }, :confirm => 'Are you sure you want to permanently remove this course?', :method => :course) %></td>
+	</tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @course_pages.current.previous } if @course_pages.current.previous %>
+<%= link_to 'Next page', { :page => @course_pages.current.next } if @course_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New course', :action => 'new' %>

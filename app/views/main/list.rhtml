@@ -1,0 +1,12 @@
+<div id="left-column">
+	<div id="courses">
+		<%= render(:partial => 'shared/course', :collection => @courses) %>
+		<%= 'There are no courses that match your selection.' if @courses.empty? %>
+	</div>
+	<%= will_paginate(@courses) %>
+</div>
+
+<div id="right-column">
+	<%= content_tag('p', link_to('Menu', :controller => 'staff', :action => 'menu')) %>
+	<%= render(:partial => 'shared/right_column')%>
+</div>

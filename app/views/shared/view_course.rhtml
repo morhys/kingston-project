@@ -1,0 +1,22 @@
+<div id="left-column">
+	<p><%= link_to("&laquo; Back to Main Site", {:action => "list"}, 
+				:style => 'font-size: .8em;') %></p>
+		<%= render(:partial => 'shared/course', :locals => {:course => @course}) %>
+    <div class="student-form">
+		<% form_tag(:action => "add_student", :id => @course.id) do -%>
+			<%= render(:partial => 'shared/student_form') %>
+			<%= submit_tag("Submit Student", :style => "margin-left: 105px;") -%>
+		<% end -%>
+	</div>
+	<div class="students">
+		<a name="students"></a>
+		<%= render(:partial => 'shared/student', :collection => @course.approved_students) %>
+	</div>
+	<% if !@student.blank? -%>
+	<% end -%>
+
+</div>
+
+<div id="right-column">
+	<%= render(:partial => 'shared/right_column')%>
+</div>

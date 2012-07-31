@@ -1,0 +1,8 @@
+<div id="categories">
+	<h4>Categories</h4>
+	<ul>
+	<% @all_categories.each do |cat| -%>
+		<li><%= link_to(cat.name, :action => 'category', :id => cat.id) %></li>
+	<% end -%>
+	</ul>
+</div>

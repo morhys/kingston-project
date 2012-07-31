@@ -1,0 +1,36 @@
+<%= error_messages_for(:student) %>
+
+<table>
+	<tr>
+		<td>Please fill form to apply student to course</td>
+	<tr>
+	</tr>	
+	</tr>
+	<tr>
+		<td>Ucas ID:<%= text_field(:student, :ucas_id) %></td>
+		
+	</tr>
+	<tr>
+		<td>Name:<%= text_field(:student, :student_name) %></td>
+	
+	</tr>
+	<tr>
+		<td>Email:<%= text_field(:student, :student_email) %></td>
+	  	
+	</tr>
+	<tr>
+		<td>Number:<%= text_field(:student, :tel) %></td>
+	</tr>
+	
+	<tr>
+		<th>Subjects</th>
+	<tr>
+		
+	</tr>
+	</tr>
+	<tr>
+	<th><%= text_area(:students, :subjects, :cols => 45, :rows => 15) %></th>
+	
+	</tr>
+</table>
+  

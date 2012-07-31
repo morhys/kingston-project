@@ -1,0 +1,47 @@
+<% @page_title = 'Student Management' %>
+
+<%= content_tag('p', link_to('&laquo; Back', :controller => 'staff', :action => 'menu')) %>
+
+<p>Show:
+	<%= link_to_unless_current('all', :status => 'all') %>&nbsp;|
+	<%= link_to_unless_current('new', :status => nil) %>&nbsp;|
+	<%= link_to_unless_current('approved', :status => 'approved') %>&nbsp;|
+	<%= link_to_unless_current('declined', :status => 'spam') %>
+</p>
+
+<% form_tag(:action => 'set_status') do -%>
+
+	<table>
+		<tr>
+			<th>&nbsp;</th>
+			<th>UCAS ID</th>
+			<th>Student Name</th>
+			<th>Email</th>
+			<th>Contact</th>
+			<th>Subjects</th>
+			<th>Created</th>
+			<th>Status</th>
+		</tr>
+		<% for student in @students %>
+			<tr class="<%= cycle('row1', 'row2') %>">
+				<td><%= check_box_tag('studentlist[]', student.id) %>&nbsp;</td>
+				<td>
+					<div class="student">
+					<div class="student-lead">Course <em><%= student.course.title %></em> <%= mail_to(h(student.student_email), h(student.student_name)) %> application:</div>
+					<div class="student-text">
+						<%= truncate(h(student.ucas_id), 90, "...") %>
+						<%= link_to('view all', :action => 'show', :id => student) if h(student.subjects).length > 90 %>
+					</div>
+					</div>
+				</td>
+				<td><%= h(student.student_name) %></td>
+				<td><%= h(student.student_email) %></td>
+				<td><%= h(student.tel) %></td>
+				<td><%= h(student.subjects) %></td>
+				<td><%= h(student.status) %></td>
+				<td><%= student.created_at.strftime('%m/%d/%y<br />%I:%m %p') %></td>
+			</tr>
+		<% end %>
+		</table>
+		<p>Mark Checked Items As: <%= submit_tag("Approved") %> <%= submit_tag("Declined") %></p>
+	<% end -%>

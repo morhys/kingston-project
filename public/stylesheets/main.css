@@ -1,0 +1,27 @@
+/* This is the stylesheet for the public area 		*/
+/* It is intended to be supplemental to sblog.css 	*/
+
+#left-column { float: left; width: 730px; margin: 2em 1em; }
+#right-column { float: right; width: 180px; margin: 2em 1em; }
+
+.course, .students { margin: 1em; padding-bottom: 1em; 
+	border-bottom: 1px dashed #004080; }
+
+.course .title { font-size: 1.2em; font-weight: bold; }
+.course .lecturer { font-size: .8em; }
+.course .course_limit { font-size: .8em; }
+.course .date { font-size: .8em; }
+.course .description { margin: 1em 0; }
+.course .lecturer { font-size: .8em; }
+.course .student-summary { font-size: .8em; }
+
+.student .student-lead { font-size: .8em; }
+.student .student-subjects { margin-top: 1em; margin-left: 1em;}
+.student-form { margin: 1em; }
+
+.about { font-size: .8em; color: #004080; padding-top: 1em; }
+
+#categories, #archive-list { font-size: .8em; color: #004080; }
+#categories h4, #archive-list h4 { margin-bottom: 0; }
+#categories ul, #archive-list ul { margin: .5em 0; padding-left: 0; list-style: none; }
+

@@ -1,0 +1,8 @@
+<div id="archive-list">
+	<h4>Completed Courses</h4>
+	<ul>
+	<% @archive_list.each do |item| -%>
+		<li><%= link_to(item[0], archive_url(:year => item[1], :month => item[2])) %></li>
+	<% end -%>
+	</ul>
+</div>

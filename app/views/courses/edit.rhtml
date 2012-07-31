@@ -1,0 +1,10 @@
+<% @page_title = 'Editing Course' -%>
+
+<%= content_tag('p', link_to('&laquo; Back', :action => 'list')) %>
+
+<% form_tag(:action => 'update', :id => @course) do -%>
+	<%= render(:partial => 'form') %>
+	<%= submit_tag("Edit", :style => "margin: 1.5em 0 0 100px;") %>
+<% end -%>
+
+<%= link_to('Preview Course', {:action => 'show', :id => @course}, :target => "_blank") %>

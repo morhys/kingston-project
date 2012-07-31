@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+			 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Kingston Clearing<%= ": #{@page_title}" if @page_title %></title>
+		<meta name="author" content="Morhys Malak." />
+		<meta name="version" content="1.0" />
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="keywords" content="Kingston, Clearing" />
+		<meta name="description" content="This is a Course clearing system for Kingston University" />
+		<meta name="revisit-after" content="2 days" />
+		<meta name="robots" content="follow,index" />
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<%= stylesheet_link_tag('kings', 'main','staff', :media => "all") %>
+	</head>
+	<body class="public">
+		<div id="header">
+			<h1><%= link_to('Kingston Clearing', home_url, :style => 'text-decoration: none; color: #FFFFFF;') %></h1>
+		</div>
+		<div id="pagecontent">
+			<%= "<div class=\"notice\">#{flash[:notice]}</div>" if flash[:notice] %>
+			<%= yield %>
+		</div>
+		<div id="footer">
+			<p></p>
+		</div>
+	</body>
+</html>
